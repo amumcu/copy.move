@@ -1,5 +1,6 @@
 package image.operations.distance.parallel;
 
+import image.operations.Constant;
 import image.operations.distance.Distance;
 import image.operations.distance.SimilarityList;
 
@@ -52,7 +53,6 @@ public class CosineSimilarityParallel implements Distance {
     }
 
     private static class SimilarityMatrixCosine extends RecursiveAction {
-        private final int THRESHOLD = 200;
         int index;
         private List<ArrayList> list;
 
@@ -60,11 +60,11 @@ public class CosineSimilarityParallel implements Distance {
             this.list = vList;
             this.index = index;
         }
-
+// constants
         @Override
         protected void compute() {
 
-            if (list.size() < THRESHOLD) {
+            if (list.size() < Constant.THRESHOLD) {
 
                 //  System.out.println("index = " + index  + "  -  " + list.size() );
                 for (int j = 0; j < list.size(); j++) {

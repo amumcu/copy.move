@@ -1,6 +1,6 @@
 package image.operations.keypoint;
 
-import image.operations.Consts;
+import image.operations.Constant;
 import image.operations.distance.Distance;
 import image.operations.distance.normal.CosineSimilarity2;
 import image.operations.distance.normal.VecorSimilarities;
@@ -34,15 +34,8 @@ public class KeyPointDetector {
     long startTime;
     long endTime;
     private List<ArrayList> descriptor_list;//  128 bit descriptors list
-    private String inputImagePath = Consts.absolutePath.concat(Consts.IMAGE_PATH); // Input Image Path
-    private String outputImagePath = Consts.absolutePath.concat(Consts.IMAGE_PATH_OUTPUT); // Output Image Path
-
-    // 0 for Cosine Similarity,
-    // 1 for Euclidean Distance,
-    // 2 for Mix Distance,
-    // 3 for Mix Distance Parallel
-    // 4 for Cosine Similarity 2 (with the threshold 0.6 )
-    private int distance = 2;
+    private String inputImagePath = Constant.absolutePath.concat(Constant.IMAGE_PATH); // Input Image Path
+    private String outputImagePath = Constant.absolutePath.concat(Constant.IMAGE_PATH_OUTPUT); // Output Image Path
 
     /**
      * This method is used to detect image key points and their descriptors.
@@ -97,23 +90,23 @@ public class KeyPointDetector {
          * */
         int matchPointNumber = 0;
 
-        if (distance == 0) {
+        if (Constant.DISTANCE_TYPE == 0) {
             matchPointNumber = cosineSimilarity(descriptor_list, keypoints);
             System.out.println("Cosine Similarity match point number = " + matchPointNumber);
             outputImagePath += "_C_" + matchPointNumber + ".jpg";
-        } else if (distance == 1) {
+        } else if (Constant.DISTANCE_TYPE == 1) {
             matchPointNumber = euclideanDistance(descriptor_list, keypoints);
             System.out.println("Euclidean distance match point number = " + +matchPointNumber);
             outputImagePath += "_O_" + matchPointNumber + ".jpg";
-        } else if (distance == 2) {
+        } else if (Constant.DISTANCE_TYPE == 2) {
             matchPointNumber = mixDistance(descriptor_list, keypoints);
             System.out.println("Mix distance match point number (Normal) = " + +matchPointNumber);
             outputImagePath += "_M_" + matchPointNumber + ".jpg";
-        } else if (distance == 3) {
+        } else if (Constant.DISTANCE_TYPE == 3) {
             matchPointNumber = mixDistanceParallel(descriptor_list, keypoints);
             System.out.println("Mix distance match point number (Parallel) = " + +matchPointNumber);
             outputImagePath += "_M_P_" + matchPointNumber + ".jpg";
-        } else if (distance == 4) {
+        } else if (Constant.DISTANCE_TYPE == 4) {
             matchPointNumber = cosineSimilarity2(descriptor_list, keypoints);
             System.out.println("Cosine Similarity match point number = " + matchPointNumber);
             outputImagePath += "_C2_" + matchPointNumber + ".jpg";

@@ -1,6 +1,7 @@
 package image.operations.distance.parallel;
 
 
+import image.operations.Constant;
 import image.operations.distance.Distance;
 import image.operations.distance.SimilarityList;
 
@@ -53,7 +54,6 @@ public class VecorSimilaritiesParallel implements Distance {
     }
 
     private static class SimilarityMatrix extends RecursiveAction {
-        private final int THRESHOLD = 200;
         int index;
         private List<ArrayList> list;
 
@@ -65,7 +65,7 @@ public class VecorSimilaritiesParallel implements Distance {
         @Override
         protected void compute() {
 
-            if (list.size() < THRESHOLD) {
+            if (list.size() < Constant.THRESHOLD) {
                 //  System.out.println("index = " + index  + "  -  " + list.size() );
                 for (int j = 0; j < list.size(); j++) {
                     int indx2 = (Integer) list.get(j).get(0);
