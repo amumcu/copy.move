@@ -10,7 +10,7 @@ import java.util.List;
  * <h1>Euclidean Distance</h1>
  * <p>
  * Euclidean Distance Computing
- *
+ * </p>
  * @author alim
  * @version 1.0
  * @since 10.01.2017

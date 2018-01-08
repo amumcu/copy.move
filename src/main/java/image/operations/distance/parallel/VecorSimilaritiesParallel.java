@@ -14,7 +14,7 @@ import java.util.concurrent.RecursiveAction;
  * <h1>Euclidean Distance</h1>
  * <p>
  * Euclidean Distance with Parallel Programming
- *
+ * </p>
  * @author alim
  * @version 1.0
  * @since 25.12.2017

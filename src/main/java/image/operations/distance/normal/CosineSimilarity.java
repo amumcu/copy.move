@@ -10,6 +10,7 @@ import java.util.List;
  * <h1>Cosine Similarity</h1>
  * <p>
  * Cosine Similarity Computing
+ * </p>
  *
  * @author alim
  * @version 1.0

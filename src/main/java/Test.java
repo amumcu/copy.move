@@ -2,7 +2,7 @@ import image.operations.keypoint.KeyPointDetector;
 import org.opencv.core.Core;
 
 /**
- * Created by Oda114 on 15.11.2016.
+ * Created by alim on 15.11.2016.
  * Basic OpenCV operations
  */
 public class Test {

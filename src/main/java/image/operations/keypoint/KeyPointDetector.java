@@ -2,7 +2,6 @@ package image.operations.keypoint;
 
 import image.operations.Constant;
 import image.operations.distance.Distance;
-import image.operations.distance.normal.CosineSimilarity2;
 import image.operations.distance.normal.VecorSimilarities;
 import image.operations.distance.normal.CosineSimilarity;
 import image.operations.distance.parallel.CosineSimilarityParallel;
@@ -76,10 +75,6 @@ public class KeyPointDetector {
         System.out.println("Getting descriptor vector list...");
         getDescriptorList(mat_dump);
 
-        //Dosyaya yazma islemi
-        // DesriptorFile desriptorFile = new DesriptorFile();
-        //desriptorFile.writeFile(keypoints, descriptor_list);
-
         /*
          *
          * Computing Cosine Similarities 1 or 2
@@ -106,10 +101,6 @@ public class KeyPointDetector {
             matchPointNumber = mixDistanceParallel(descriptor_list, keypoints);
             System.out.println("Mix distance match point number (Parallel) = " + +matchPointNumber);
             outputImagePath += "_M_P_" + matchPointNumber + ".jpg";
-        } else if (Constant.DISTANCE_TYPE == 4) {
-            matchPointNumber = cosineSimilarity2(descriptor_list, keypoints);
-            System.out.println("Cosine Similarity match point number = " + matchPointNumber);
-            outputImagePath += "_C2_" + matchPointNumber + ".jpg";
         }
 
         Mat outputImage = new Mat(objectImage.rows(), objectImage.cols(), Highgui.CV_LOAD_IMAGE_COLOR);
@@ -257,25 +248,6 @@ public class KeyPointDetector {
         //return appyRansac( cosineSimilarity.getSimilarityList(descriptor_list, keypoints), keypoints);
     }
 
-
-    /**
-     * <h1>Similarity Matrix Calculation using Cosine Similarity (with the threshold 0.6 )</h1>
-     * <p>
-     * This method is used to find the similarities of one key point to
-     * all the other key points.
-     * Vectors similarities is detected by using Cosine Similarity
-     *
-     * @param descriptor_list Vektor description of the key points. Vector size is 128
-     * @param keypoints       Key points detected by the SIFT algorithm
-     * @return int This returns the number of similar key points
-     * that represent the copy move forgery region
-     */
-    private int cosineSimilarity2(List<ArrayList> descriptor_list, KeyPoint[] keypoints) {
-
-        System.out.println("Computing Cosine Similarity (with the threshold 0.6 ) ...");
-        CosineSimilarity2 cosineSimilarity2 = new CosineSimilarity2();
-        return cosineSimilarity2.getSimilarityList(descriptor_list, keypoints);
-    }
 
     /**
      * <h1>RANSAC remove false detection</h1>

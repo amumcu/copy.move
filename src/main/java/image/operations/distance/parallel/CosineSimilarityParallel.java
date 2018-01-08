@@ -13,7 +13,7 @@ import java.util.concurrent.RecursiveAction;
  * <h1>Cosine Similarity</h1>
  * <p>
  * Cosine Similarity with Parallel Programming
- *
+ * </p>
  * @author alim
  * @version 1.0
  * @since 26.12.2017

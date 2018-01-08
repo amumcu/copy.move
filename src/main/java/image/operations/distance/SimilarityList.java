@@ -2,6 +2,16 @@ package image.operations.distance;
 
 import java.util.ArrayList;
 
+/**
+ * <h1>Similarity List</h1>
+ * <p>
+ *Getting most similar key points in the picture.
+ * </p>
+ * @author alim
+ * @version 1.0
+ * @since 10.01.2017
+ */
+
 public class SimilarityList {
 
     public ArrayList getSimilarityList(double similarityMatrix[][], int size) {

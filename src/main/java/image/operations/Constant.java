@@ -1,14 +1,11 @@
 package image.operations;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 import java.io.File;
 
 /**
  * <h1>Constant</h1>
  * <p>
  * Constant of the project
- *
+ *</p>
  * @author alim
  * @version 1.0
  * @since 6.12.2016
@@ -20,8 +17,8 @@ public class Constant {
      * {@value #IMAGE_PATH} Holds the path of the inpu image
      * {@value #IMAGE_PATH_OUTPUT} Holds the path of the output image
      */
-    public static final String IMAGE_PATH = "/Pictures/018_F.jpg";
-    public static final String IMAGE_PATH_OUTPUT = "/Pictures/Output/OUTPUT_018_F";
+    public static final String IMAGE_PATH = "/Pictures/016_F.jpg";
+    public static final String IMAGE_PATH_OUTPUT = "/Pictures/Output/OUTPUT_016_F";
 
 
 
